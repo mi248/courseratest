@@ -6,3 +6,4 @@ git status 					--> Shows which branch you're on and commits etc
 git checkout <branch name> 	--> Checks out another branch
 git add . 					--> Adds all files to be committed
 git commit -m "<MESSAGE>" 	--> Commits files with a message
+git push 					--> Pushes contents up to the Git repository
