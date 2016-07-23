@@ -25,3 +25,58 @@ Browsers interpret HTML top to bottom.
 	a) Specify <meta> tag to contain chracter set encoding. It is a standalone tag, which means there is closing tag.
 	b) Specify <title> tag. It is required. HTML is invalid without it.
 4) <body> tag. All content that is visible to user.
+
+Lec 05 - HTML Content Models:
+Read: https://www.w3.org/TR/html/dom.html#kinds-of-content
+1) Content models define what HTML tags can be nested inside which other ones
+2) Block-level:
+	a) Render to begin on new line by default. Can be changed by CSS.
+	b) May contain inline or block-level elements
+	c) Roughly translate to Flow Content HTML5 category
+	d) Example: <div>
+3) Inline-level:
+	a) Render to begin on same line by default.
+	b) May contain inline elements only
+	c) Roughly translate to Phrasing Content HTML5 category
+	d) Example: <span>
+
+Lec 06 - Heading Elements (and new HTML5 emantic elements)
+1) Semantic HTML element: implies some meaning to the content. Easy to understand for machines and humans. May help SEO.
+2) <h1> to <h6>, in order of importance. Browser has default styling associated.
+3) In HTML5, new tags are <header>, <nav>, <section>, <article>, <aside> and <footer>.
+	a) All block level elements. 
+	b) Using them makes reading HTML a lot easier as it depicts structure of page. 
+
+Lec 07 - Lists
+1) Often used for structuring navigation portions of web pages
+2) Unordered list --> <ul>
+	a) Only <li> element allowed inside.
+3) List item --> <li>
+4) Ordered list --> <ol>
+	a) Adds a number next to the list, making it ordered.
+
+Lec 08 - HTML Character Entity References:
+1) Basically, telling browser to skip special HTML characters as not HTML, or safeguard against limited character sets
+2) For '<', use '&lt;'
+3) For '>', use '&gt;'
+4) For '&', use '&amp;'
+5) For copyright symbol, use '&copy;'
+6) For making sure several words all wrap together, use '&nbsp;' --> ONE&nbsp;TWO&nbsp;THREE
+7) For proper encodingof quotes, use '&quot;''
+
+Lec 09 - Creating Links:
+1) Internal links: linkng to files in the same directory
+2) External links: linking to other website
+3) Format: <a href="insert file link here" title="Put in title for visuallly impaired">Type in text that will appear on link</a>
+	a) Adding a 'target="_blank"' attribute opens the page in a new tab
+4) <a> tag is both a flow and phrasing element, i.e. both block and inline. This means we can put block level elements inside the content of <a> tag
+5) Links within the same page:
+	a) <a href="#section_id">Link to section</a>
+	b) Links to any section element that has the id attribute "section_id"
+	c) Alternatively, have an <a> tag with the name attribute "section_id"
+	d) Use this techique to provide a "Back to top" link
+
+Lec 10 - Displaying images:
+1) <img src="URL that points to the image. Relative/absolute, whatever" width="100" height="100" alt="Used by screen readers to help visual impaired viewers">
+	a) Inline element
+	b) Good to specify width and height attributes to reserve space for the image as it loads.
