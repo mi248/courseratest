@@ -7,3 +7,21 @@ git checkout <branch name> 	--> Checks out another branch
 git add . 					--> Adds all files to be committed
 git commit -m "<MESSAGE>" 	--> Commits files with a message
 git push 					--> Pushes contents up to the Git repository
+
+
+Browser Sync:
+broswer-sync start --server --directory --files "*"
+    * means browser sync should reload anytime any file changes within the directory
+
+
+Lec 04 - HTML document structure:
+Validate HTML here: https://validator.w3.org/nu/#textarea
+Browsers interpret HTML top to bottom.
+1)Must start with <!DOCTYPE HTML>
+	This is because browsers need to know whether its a HTML-standard compliant page or not. Non-compliant pages (wihtout this header) were rendered in 'Quirks mode'.
+
+2) Next is the <html> tag, which contains the entire HTML document.
+3) <head> tag contains items that describe the main content of the page and metadata e.g. what character encoding, page title, author's description etc
+	a) Specify <meta> tag to contain chracter set encoding. It is a standalone tag, which means there is closing tag.
+	b) Specify <title> tag. It is required. HTML is invalid without it.
+4) <body> tag. All content that is visible to user.
