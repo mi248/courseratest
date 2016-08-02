@@ -80,3 +80,237 @@ Lec 10 - Displaying images:
 1) <img src="URL that points to the image. Relative/absolute, whatever" width="100" height="100" alt="Used by screen readers to help visual impaired viewers">
 	a) Inline element
 	b) Good to specify width and height attributes to reserve space for the image as it loads.
+
+
+CSS ======================================================================================================
+
+Lecture 12 - Anatomy of a CS rule:
+selector {
+	property1: value1;  -->known as declaration
+	property2: value2;
+	property3: value3;
+}
+
+<style> tag can go into <head> tag of HTML file
+
+Lecture 13 - Element, class and id selectors:
+
+Element selector:
+	element_name {
+		property: value;
+	}
+
+	Example:
+	p {  
+		color: blue; -->This rule affects all p elements.
+	}	
+
+Class selector:
+	.class_name {
+		property: value;
+	}
+
+	Example:
+	.blue {
+		color: blue; --> Will affect all elements with class blue e.g. <p class="blue">...</p>
+	}
+
+id selector:
+	#id_name {
+		property: value;
+	}
+
+	Example:
+	#blue {  
+		color: blue; --> Will affect the element with id 'name' e.g. <p id="blue">...</p>
+	}
+
+Grouping selectors:
+div, .blue {
+	color: blue; --> Affects all div elements and all elements with class "blue"
+}
+
+Lec 14 - Combining selectors:
+Element with class selector:
+	element.class {
+		property: value;
+	}
+
+	p.big {  --> p attributes with class big
+		font-size: 20px;
+	}
+
+Child selector:
+	parent_selector > child_selector { --> Affects every child_selector that is a direct child of parent_selector
+		property: value;
+	}
+
+	article > p { --> Affects every <p> that is a direct child of <article>. i.e. <article>...<p>Affected. Direct child.</p>...<div><p>Not affected. Not direct child</p></div>...</article>
+		color: blue;
+	}
+
+Descendant selector:
+	parent child { --> Affects all child selectors inside parent selectors
+		property: value:
+	}
+
+	article p { --> Affects every <p> that is child of <article>. i.e. <article>...<p>Affected</p>...<div><p>Also affected</p></div>...</article>
+		color: blue;
+	}
+
+Lec 15 - Pseudo-class selectors:
+Used to target elements that cannot be affected using normal selectors or based on user interaction.
+
+selector:pseudo-class {
+	property: value;
+}
+
+a:link and a:visited --> Used with <a> tag. :visited is applied when a link has been visited.
+:hover --> When user hovers over
+:active --> When user clicks but not releases yet
+:nth-child(some number or formula) --> 
+
+Lec 16 - Style Placement:
+
+Inline styling:
+CSS style can be placed inside an HTML element using the style="property: value;". Least reuseable.
+
+Internal styling: specified inside HTML file within <style> tag inside the <head> tag.
+
+External styling: <link rel="stylesheet" href="style.css"> inside the head tag.
+
+Lec 17 - Conflict resolution:
+Cascading stylesheets --> combining styles from different sources
+
+Origin:
+	Last declaration wins. Imagine CSS inside HTML where it is linked. So, if there are two stylesheets linked targeting the same element, the stylesheet declared later wins!
+Merge:
+	When two different CSS properties target the same element, they merge, even though they are coming from different sources.
+
+Inheritance:
+	Specifying a style for a parent tag affects all children tags, unless thoseproperties are overriden.
+
+Specifity:
+	Most specific selector combination rule wins. Can be overriden using the '!important' declaration.
+	Style       ID        Class/pseudo-class/attribute       # of elements
+
+Lec 18 - Styling text:
+font-family:
+	Provide multiple fonts so client can fall back to those fonts if some aren't installed. At the very least, specify serif vs sans-serif.
+	Go to w3schools for commonly used font families.
+
+color:
+	Use #rrggbb values i.e. hexadecimal.
+
+font-style:
+	Italic or normal.
+
+font-weight:
+	bold or normal. Can specify number or bold keyword.
+
+font-size:
+	pixel values. ##px;. Default is 16px.
+
+text-transform:
+	capitalize, lowercase, uppercase etc.
+
+text-align:
+	Align text WITHIN its block-level element
+
+Relative font sizing:
+	Can use %s. It's % of default font size.
+	#em - Equivalent to size of the letter 'm' in the font that is being used.
+	Relative font sizing is cumulative, not overrideable.
+
+
+Lec 19 - The Box Models
+Each box consists of margin, border, padding and content.
+	Margin is distance between outside and border.
+	Padding is distance between border and content.
+	Box-sizing property can be used to control the width. It is not inheritable. 'border-box' is the way to go.
+
+'*' selector can be used to apply a property to every element.
+
+For margins, horizontally, they add up. Vertial margins collapse, with the larger margin winning.
+When content overflows, use the overflow property.
+
+Lec 20 - Background property:
+background-color, background-image: url("file.whatever"), background-repeat, background-position, 
+Can all be defined in background: property.
+
+Lec 21 - Positioning Elements by Floating:
+float: left, right
+clear: left, right, both
+Floating an element takes it out of the normal rendering flow. Margins don't collapse.
+
+Lec 21 - Relative and absolute element positioning:
+Static positioning: positioning offsets ignored. Default for all.
+Relative positioning: positioning offsets relative to element's position in normal document flow. Its original spot is reserved.
+Absolute positioning: positioning offsets relative to position of nearest ancestor which has positioning set on it, other than static. Element taken out of normal document flow.
+
+Lec 23 - Media Queries:
+Produce different layouts for different screen sizes and orientation but with same HTML.
+Syntax:
+@media (max-width: 961px) {
+	p {color: blue;}
+}
+Can use 'and' and ',' for AND and OR operators.
+Typically, have some base styles which are applied always and then media queries which override the styles.
+Very important to make sure that the media ranges do not overlap.
+Large size: 1200px or more
+Medium size: 992px - 1119px
+Breakpoints: when media queries switch
+Use chrome developer tools
+
+Lec 24 - Responsive design:
+Site designed to adapt its layout to the viewing environment by using fluid, proportion-based grids, flexible images and CSS3 media queries.
+Visual delivery may change based on viewing environments. 
+
+12-column grid responsive layout.
+
+Add <meta name="viewport" content="width=device-width, initial-scale=1"> /Ensures that devices stay at zoom level 100% and turns off default mobile zooming/
+
+Simple responsive framework:
+.row {
+	width: 100%;
+}
+
+@media (min-width: 1200px) {  /*** Use multiple media query sizes and use md or sm instead of lg ***/
+	.col-lg-1, .col-lg-2, .col-lg-3, ......, .col-lg-12 {
+		float: left;
+		border: 1px solid green;
+	}
+
+	.col-lg-1 {
+		width: 8.33%;
+	}
+	.col-lg-2 {
+		width: 16.66%;
+	}
+	.col-lg-3 {
+		width: 25%;
+	}
+	.
+	.
+	.
+	.col-lg-12 {
+		width: 100%;
+	}
+}
+
+Lec 25 - Intro to Twitter Bootstrap:
+HTML, CSS and JS framework for developing responsive, mobile-first projects on the web
+Download bootstrap and jQuery
+
+Lec 26 - Bootstrap grid system:
+<div class="container">
+Always inside class "container" or "container-fluid". The latter fills browser's width and provides padding around grid.
+"container" class is fixed width, but responsive to browser width.
+
+	<div class="row">
+	Creates horizontal groups of columns. Columns interact with those in the same row but independent of those in another row.
+	Applies negative margin to counter the padding setup by container class
+
+		<div class="col-SIZE-SPAN">
+		SIZE= lg or md. Can use xs to make sure columns do not collapse; it will always be applied and keep that layout whatever the size of the screen.
+		SPAN= how many columns. From 1 to 12. Sum up to 12. If more than 12 for a row, then moves to next line.
